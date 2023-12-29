@@ -1,6 +1,6 @@
 class Storage {
     #items;
-    constructor([...items]) {
+    constructor(items) {
         this.#items = items;
     }
 
@@ -14,7 +14,9 @@ class Storage {
 
     removeItem(itemToRemove) {
         let index = this.#items.indexOf(itemToRemove);
-        this.#items.splice(index, 1)
+        if (index != -1) {
+            this.#items.splice(index, 1)
+        }
 
     }
 }
@@ -25,5 +27,7 @@ storage.addItem("Droid");
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
 storage.removeItem("Prolonger");
 console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+
 
 
